@@ -106,13 +106,8 @@ class DateHelper extends Base
 
         $diff = $now - $timestamp;
 
-        if ($diff < 900) {
-            return t('<15m');
-        }
-        if ($diff < 1200) {
-            return t('<30m');
-        } elseif ($diff < 3600) {
-            return t('<1h');
+        if ($diff < 3600) {
+            return '~'.t('%dm', $diff / 60);
         } elseif ($diff < 86400) {
             return '~'.t('%dh', $diff / 3600);
         }
